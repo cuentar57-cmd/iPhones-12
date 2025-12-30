@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iCloud Store</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* ================= BODY + FONDO ================= */
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  color:white;
+  background:linear-gradient(120deg, #0d0d0d, #1a1a1a, #333333, #1a1a1a);
+  background-size:600% 600%;
+  animation:fondo 20s ease-in-out infinite;
+}
+
+@keyframes fondo{
+  0%{background-position:0% 50%}
+  25%{background-position:50% 100%}
+  50%{background-position:100% 50%}
+  75%{background-position:50% 0%}
+  100%{background-position:0% 50%}
+}
+
+/* ================= HEADER ================= */
+header{
+  text-align:center;
+  padding:30px 10px;
+}
+.logo{
+  font-size:38px;
+  font-weight:bold;
+  animation:flotar 4s ease-in-out infinite;
+}
+.logo i{
+  color:white;
+}
+.sublogo{
+  letter-spacing:6px;
+  opacity:.8;
+  margin-top:5px;
+  font-size:20px;
+}
+
+/* ================= BUSCADOR ================= */
+#buscador{
+  display:block;
+  margin:10px auto 20px;
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+}
+
+/* ================= SECCION ================= */
+section{padding:15px;}
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
+
+/* ================= CARD PRODUCTO ================= */
+.card{
+  position:relative;
+  border:2px solid #00cfff;
+  border-radius:18px;
+  padding:15px;
+  background:rgba(0,0,0,.55);
+  overflow:hidden;
+  animation:brillo 2s infinite alternate, flotar 4s ease-in-out infinite;
+}
+@keyframes brillo{
+  from{box-shadow:0 0 6px #00cfff;}
+  to{box-shadow:0 0 16px #00cfff;}
+}
+@keyframes flotar{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+
+/* luz interna */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.08),transparent);
+  animation:luz 3.5s linear infinite;
+}
+@keyframes luz{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(100%)}
+}
+
+.card i{font-size:26px;color:#00cfff}
+.usado{
+  background:orange;
+  color:black;
+  padding:3px 8px;
+  border-radius:8px;
+  font-size:12px;
+  margin-left:6px;
+}
+.precio{
+  font-size:18px;
+  font-weight:bold;
+  margin:6px 0;
+}
+.cuotas{
+  font-size:14px;
+  opacity:.8;
+  margin-bottom:6px;
+}
+.boton{
+  display:block;
+  margin-top:10px;
+  padding:10px;
+  background:#00cfff;
+  color:black;
+  text-align:center;
+  border-radius:10px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* ================= PAGINACION ================= */
+.paginacion{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:25px 0;
+}
+.paginacion button{
+  padding:10px 15px;
+  border:none;
+  border-radius:10px;
+  background:#222;
+  color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><i class="fa-brands fa-apple"></i></div>
+  <div class="sublogo">iCloud Store</div>
+</header>
+
+<input id="buscador" placeholder="Buscar iPhone..." onkeyup="filtrar()">
+
+<section>
+<div class="grid" id="productos">
+
+<!-- ================= IPHONES ================= -->
+<!-- iPhone 11 -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">78%</span>
+<div class="precio">190 USD</div>
+<div class="cuotas">6x 32 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">81%</span>
+<div class="precio">240 USD</div>
+<div class="cuotas">6x 40 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+
+<!-- iPhone 12 -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 128GB <span class="usado">85%</span>
+<div class="precio">300 USD</div>
+<div class="cuotas">6x 50 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+
+<!-- iPhone 13 -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 128GB <span class="usado">88%</span>
+<div class="precio">420 USD</div>
+<div class="cuotas">6x 70 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+
+<!-- iPhone 14 -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 128GB <span class="usado">90%</span>
+<div class="precio">500 USD</div>
+<div class="cuotas">6x 84 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+
+<!-- iPhone 15 -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 128GB <span class="usado">92%</span>
+<div class="precio">650 USD</div>
+<div class="cuotas">6x 108 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+
+<!-- iPhone 16 -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 128GB <span class="usado">94%</span>
+<div class="precio">750 USD</div>
+<div class="cuotas">6x 125 USD</div>
+<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+
+</div>
+
+<div class="paginacion">
+  <button onclick="ant()">Anterior</button>
+  <span id="pagina"></span>
+  <button onclick="sig()">Siguiente</button>
+</div>
+
+</section>
+
+<script>
+let p=1;
+const por=4; // productos por página
+const items=document.querySelectorAll(".iphone");
+const total=Math.ceil(items.length/por);
+
+function mostrar(){
+ items.forEach((e,i)=>{
+  e.style.display=(i>=(p-1)*por && i<p*por)?"block":"none";
+ });
+ document.getElementById("pagina").innerText="Página "+p+" de "+total;
+}
+function sig(){if(p<total){p++;mostrar();}}
+function ant(){if(p>1){p--;mostrar();}}
+
+function filtrar(){
+ const f=document.getElementById("buscador").value.toLowerCase();
+ items.forEach(e=>{
+  e.style.display=e.innerText.toLowerCase().includes(f)?"block":"none";
+ });
+}
+
+mostrar();
+</script>
+
+</body>
+</html>
