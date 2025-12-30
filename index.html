@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ================= BODY + FONDO ANIMADO ================= */
+/* ================= BODY + FONDO ================= */
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,sans-serif;
   color:white;
-  background:linear-gradient(-45deg,#0b0b0b,#1a1a2e,#0b0b3f,#001f3f,#0b0b0b);
+  background:linear-gradient(-45deg,#000000,#001f3f,#003366,#1a002a,#002b36,#000000);
   background-size:600% 600%;
   animation:fondo 20s ease-in-out infinite;
 }
@@ -33,44 +33,29 @@ header{
 .logo{
   font-size:38px;
   font-weight:bold;
-  animation:flotar 4s ease-in-out infinite, colorChange 3s linear infinite;
+  color:#00ff00;
+  animation:flotar 4s ease-in-out infinite;
 }
-.logo i{color:lime;}
 .sublogo{
   letter-spacing:6px;
   opacity:.8;
   margin-top:5px;
-  color:lime;
-}
-@keyframes colorChange{
-  0%{color:#00ff00;}
-  50%{color:#33ff33;}
-  100%{color:#00ff00;}
 }
 
-/* ================= BUSCADOR MODERNO ================= */
+/* ================= BUSCADOR ================= */
 #buscador{
   display:block;
   margin:10px auto 20px;
-  padding:14px 18px;
+  padding:12px;
   width:90%;
   max-width:420px;
-  border-radius:25px;
+  border-radius:12px;
   border:none;
   font-size:16px;
-  box-shadow: 0 4px 15px rgba(0,255,0,0.5);
-  background:rgba(0,0,0,0.7);
-  color:white;
-  transition: all 0.3s ease;
-}
-#buscador:focus{
-  outline:none;
-  box-shadow: 0 4px 25px rgba(0,255,0,1);
-  background:rgba(0,0,0,0.9);
 }
 
 /* ================= SECCION ================= */
-section{padding:15px;}
+section{padding:15px}
 .grid{
   display:grid;
   grid-template-columns:1fr;
@@ -80,7 +65,7 @@ section{padding:15px;}
 /* ================= CARD PRODUCTO ================= */
 .card{
   position:relative;
-  border:2px solid #ff0000;
+  border:2px solid #00cfff;
   border-radius:18px;
   padding:15px;
   background:rgba(0,0,0,.55);
@@ -88,8 +73,8 @@ section{padding:15px;}
   animation:brillo 2s infinite alternate, flotar 4s ease-in-out infinite;
 }
 @keyframes brillo{
-  from{box-shadow:0 0 6px #ff0000;}
-  to{box-shadow:0 0 16px #ff0000;}
+  from{box-shadow:0 0 6px #00cfff;}
+  to{box-shadow:0 0 16px #00cfff;}
 }
 @keyframes flotar{
   0%{transform:translateY(0)}
@@ -107,10 +92,11 @@ section{padding:15px;}
   from{transform:translateX(-100%)}
   to{transform:translateX(100%)}
 }
-.card i{font-size:26px;color:white;}
+
+.card i{font-size:26px;color:#00cfff}
 .usado{
-  background:red;
-  color:white;
+  background:orange;
+  color:black;
   padding:3px 8px;
   border-radius:8px;
   font-size:12px;
@@ -124,21 +110,22 @@ section{padding:15px;}
 .cuotas-container{
   display:flex;
   gap:5px;
-  margin:5px 0;
+  margin-bottom:5px;
 }
 .cuota{
-  padding:5px 8px;
   background:red;
+  padding:3px 6px;
+  border-radius:5px;
+  font-size:12px;
+  animation:flotar 3s ease-in-out infinite;
   color:white;
-  border-radius:6px;
-  animation:flotar 3s ease-in-out infinite alternate;
 }
 .boton{
   display:block;
   margin-top:10px;
   padding:10px;
-  background:#ff0000;
-  color:white;
+  background:#00cfff;
+  color:black;
   text-align:center;
   border-radius:10px;
   font-weight:bold;
@@ -161,11 +148,11 @@ section{padding:15px;}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo"><i class="fa-brands fa-apple"></i> Zona iPhones</div>
-  <div class="sublogo">iCloud Store</div>
+  <div class="logo">Zona iPhones</div>
 </header>
 
 <input id="buscador" placeholder="Buscar iPhone..." onkeyup="filtrar()">
@@ -173,147 +160,72 @@ section{padding:15px;}
 <section>
 <div class="grid" id="productos">
 
-<!-- ================= PÁGINA 1 ================= -->
+<!-- ================= IPHONES ================= -->
+<!-- iPhone 11 -->
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">78% Usado</span>
-<div class="precio">$95.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $31.667</div><div class="cuota">6x $15.833</div><div class="cuota">9x $10.556</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="precio">$110.000</div>
+<div class="cuotas-container"><div class="cuota">3x $36.667</div><div class="cuota">6x $18.333</div><div class="cuota">9x $12.222</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">82% Usado</span>
-<div class="precio">$105.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $35.000</div><div class="cuota">6x $17.500</div><div class="cuota">9x $11.667</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 Pro 64GB <span class="usado">80% Usado</span>
+<div class="precio">$150.000</div>
+<div class="cuotas-container"><div class="cuota">3x $50.000</div><div class="cuota">6x $25.000</div><div class="cuota">9x $16.667</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
+<!-- iPhone 12 -->
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 128GB <span class="usado">85% Usado</span>
-<div class="precio">$130.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $43.333</div><div class="cuota">6x $21.667</div><div class="cuota">9x $14.444</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 Pro 128GB <span class="usado">90% Usado</span>
-<div class="precio">$155.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $51.667</div><div class="cuota">6x $25.833</div><div class="cuota">9x $17.222</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 Pro Max 128GB <span class="usado">88% Usado</span>
 <div class="precio">$170.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $56.667</div><div class="cuota">6x $28.333</div><div class="cuota">9x $18.889</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="cuotas-container"><div class="cuota">3x $56.667</div><div class="cuota">6x $28.333</div><div class="cuota">9x $18.889</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<!-- ================= PÁGINA 2 ================= -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 Pro 128GB <span class="usado">80% Usado</span>
+<div class="precio">$210.000</div>
+<div class="cuotas-container"><div class="cuota">3x $70.000</div><div class="cuota">6x $35.000</div><div class="cuota">9x $23.333</div></div>
+<a class="boton" href="#">Consultar</a></div>
+
+<!-- iPhone 13 -->
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 128GB <span class="usado">88% Usado</span>
-<div class="precio">$170.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $56.667</div><div class="cuota">6x $28.333</div><div class="cuota">9x $18.889</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 128GB <span class="usado">92% Usado</span>
-<div class="precio">$200.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $66.667</div><div class="cuota">6x $33.333</div><div class="cuota">9x $22.222</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="precio">$220.000</div>
+<div class="cuotas-container"><div class="cuota">3x $73.333</div><div class="cuota">6x $36.667</div><div class="cuota">9x $24.444</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 Pro 128GB <span class="usado">90% Usado</span>
-<div class="precio">$230.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $76.667</div><div class="cuota">6x $38.333</div><div class="cuota">9x $25.556</div>
-</div><a class="boton" href="#">Consultar</a></div>
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 Pro Max 128GB <span class="usado">92% Usado</span>
-<div class="precio">$260.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $86.667</div><div class="cuota">6x $43.333</div><div class="cuota">9x $28.889</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="precio">$280.000</div>
+<div class="cuotas-container"><div class="cuota">3x $93.333</div><div class="cuota">6x $46.667</div><div class="cuota">9x $31.111</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
+<!-- iPhone 14 -->
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 128GB <span class="usado">95% Usado</span>
-<div class="precio">$290.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $96.667</div><div class="cuota">6x $48.333</div><div class="cuota">9x $32.222</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="precio">$320.000</div>
+<div class="cuotas-container"><div class="cuota">3x $106.667</div><div class="cuota">6x $53.333</div><div class="cuota">9x $35.556</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Plus 128GB <span class="usado">97% Usado</span>
-<div class="precio">$330.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $110.000</div><div class="cuota">6x $55.000</div><div class="cuota">9x $36.667</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Pro 128GB <span class="usado">98% Usado</span>
-<div class="precio">$400.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $133.333</div><div class="cuota">6x $66.667</div><div class="cuota">9x $44.444</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Pro Max 128GB <span class="usado">99% Usado</span>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Pro 128GB <span class="usado">95% Usado</span>
 <div class="precio">$450.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $150.000</div><div class="cuota">6x $75.000</div><div class="cuota">9x $50.000</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="cuotas-container"><div class="cuota">3x $150.000</div><div class="cuota">6x $75.000</div><div class="cuota">9x $50.000</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<!-- ================= PÁGINA 3 ================= -->
+<!-- iPhone 15 -->
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 128GB <span class="usado">Nuevo</span>
-<div class="precio">$500.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $166.667</div><div class="cuota">6x $83.333</div><div class="cuota">9x $55.556</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="precio">$580.000</div>
+<div class="cuotas-container"><div class="cuota">3x $193.333</div><div class="cuota">6x $96.667</div><div class="cuota">9x $64.444</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 Plus 128GB <span class="usado">Nuevo</span>
-<div class="precio">$550.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $183.333</div><div class="cuota">6x $91.667</div><div class="cuota">9x $61.111</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 Pro 256GB <span class="usado">Nuevo</span>
+<div class="precio">$780.000</div>
+<div class="cuotas-container"><div class="cuota">3x $260.000</div><div class="cuota">6x $130.000</div><div class="cuota">9x $86.667</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 Pro 128GB <span class="usado">Nuevo</span>
-<div class="precio">$620.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $206.667</div><div class="cuota">6x $103.333</div><div class="cuota">9x $68.889</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 Pro Max 256GB <span class="usado">Nuevo</span>
-<div class="precio">$800.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $266.667</div><div class="cuota">6x $133.333</div><div class="cuota">9x $88.889</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<!-- ================= PÁGINA 4 ================= -->
+<!-- iPhone 16 -->
 <div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 128GB <span class="usado">Nuevo</span>
-<div class="precio">$700.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $233.333</div><div class="cuota">6x $116.667</div><div class="cuota">9x $77.778</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 Pro 128GB <span class="usado">Nuevo</span>
 <div class="precio">$900.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $300.000</div><div class="cuota">6x $150.000</div><div class="cuota">9x $100.000</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="cuotas-container"><div class="cuota">3x $300.000</div><div class="cuota">6x $150.000</div><div class="cuota">9x $100.000</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 Pro Max 256GB <span class="usado">Nuevo</span>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 Pro 256GB <span class="usado">Nuevo</span>
 <div class="precio">$1.050.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $350.000</div><div class="cuota">6x $175.000</div><div class="cuota">9x $116.667</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<!-- ================= PÁGINA 5 ================= -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 17 256GB <span class="usado">Nuevo</span>
-<div class="precio">$1.000.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $333.333</div><div class="cuota">6x $166.667</div><div class="cuota">9x $111.111</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 17 Pro 256GB <span class="usado">Nuevo</span>
-<div class="precio">$1.350.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $450.000</div><div class="cuota">6x $225.000</div><div class="cuota">9x $150.000</div>
-</div><a class="boton" href="#">Consultar</a></div>
-
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 17 Pro Max 256GB <span class="usado">Nuevo</span>
-<div class="precio">$1.510.000</div>
-<div class="cuotas-container">
-  <div class="cuota">3x $503.333</div><div class="cuota">6x $251.667</div><div class="cuota">9x $167.778</div>
-</div><a class="boton" href="#">Consultar</a></div>
+<div class="cuotas-container"><div class="cuota">3x $350.000</div><div class="cuota">6x $175.000</div><div class="cuota">9x $116.667</div></div>
+<a class="boton" href="#">Consultar</a></div>
 
 </div>
 
@@ -327,7 +239,7 @@ section{padding:15px;}
 
 <script>
 let p=1;
-const por=8;
+const por=6;
 const items=document.querySelectorAll(".iphone");
 const total=Math.ceil(items.length/por);
 
@@ -349,5 +261,6 @@ function filtrar(){
 
 mostrar();
 </script>
+
 </body>
 </html>
