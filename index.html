@@ -8,17 +8,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-
-/* ================= BODY + FONDO ================= */
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,sans-serif;
   color:white;
-  background:linear-gradient(120deg, #0d0d0d, #1a1a1a, #333333, #1a1a1a);
+  background:linear-gradient(-45deg,#0b0b0b,#1a1a2e,#162447,#1f4068,#1a1a2e);
   background-size:600% 600%;
   animation:fondo 20s ease-in-out infinite;
 }
-
 @keyframes fondo{
   0%{background-position:0% 50%}
   25%{background-position:50% 100%}
@@ -27,7 +24,6 @@ body{
   100%{background-position:0% 50%}
 }
 
-/* ================= HEADER ================= */
 header{
   text-align:center;
   padding:30px 10px;
@@ -37,17 +33,14 @@ header{
   font-weight:bold;
   animation:flotar 4s ease-in-out infinite;
 }
-.logo i{
-  color:white;
-}
+.logo i{color:white;}
 .sublogo{
-  letter-spacing:6px;
+  letter-spacing:4px;
   opacity:.8;
   margin-top:5px;
   font-size:20px;
 }
 
-/* ================= BUSCADOR ================= */
 #buscador{
   display:block;
   margin:10px auto 20px;
@@ -59,7 +52,6 @@ header{
   font-size:16px;
 }
 
-/* ================= SECCION ================= */
 section{padding:15px;}
 .grid{
   display:grid;
@@ -67,27 +59,20 @@ section{padding:15px;}
   gap:15px;
 }
 
-/* ================= CARD PRODUCTO ================= */
 .card{
   position:relative;
-  border:2px solid #00cfff;
+  border:2px solid #fff;
   border-radius:18px;
   padding:15px;
-  background:rgba(0,0,0,.55);
+  background:rgba(255,255,255,.05);
   overflow:hidden;
-  animation:brillo 2s infinite alternate, flotar 4s ease-in-out infinite;
-}
-@keyframes brillo{
-  from{box-shadow:0 0 6px #00cfff;}
-  to{box-shadow:0 0 16px #00cfff;}
+  animation:flotar 4s ease-in-out infinite;
 }
 @keyframes flotar{
   0%{transform:translateY(0)}
   50%{transform:translateY(-6px)}
   100%{transform:translateY(0)}
 }
-
-/* luz interna */
 .card::before{
   content:"";
   position:absolute;
@@ -100,15 +85,23 @@ section{padding:15px;}
   to{transform:translateX(100%)}
 }
 
-.card i{font-size:26px;color:#00cfff}
+.card i{font-size:26px;color:#fff}
+
 .usado{
+  display:inline-block;
   background:orange;
   color:black;
-  padding:3px 8px;
+  padding:5px 12px;
   border-radius:8px;
-  font-size:12px;
-  margin-left:6px;
+  font-weight:bold;
+  font-size:14px;
+  animation:brillo 2s infinite alternate;
 }
+@keyframes brillo{
+  from{box-shadow:0 0 5px orange;}
+  to{box-shadow:0 0 15px orange;}
+}
+
 .precio{
   font-size:18px;
   font-weight:bold;
@@ -117,13 +110,13 @@ section{padding:15px;}
 .cuotas{
   font-size:14px;
   opacity:.8;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 .boton{
   display:block;
   margin-top:10px;
   padding:10px;
-  background:#00cfff;
+  background:white;
   color:black;
   text-align:center;
   border-radius:10px;
@@ -131,7 +124,6 @@ section{padding:15px;}
   text-decoration:none;
 }
 
-/* ================= PAGINACION ================= */
 .paginacion{
   display:flex;
   justify-content:center;
@@ -145,7 +137,6 @@ section{padding:15px;}
   background:#222;
   color:white;
 }
-
 </style>
 </head>
 
@@ -161,46 +152,26 @@ section{padding:15px;}
 <section>
 <div class="grid" id="productos">
 
-<!-- ================= IPHONES ================= -->
-<!-- iPhone 11 -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">78%</span>
-<div class="precio">190 USD</div>
-<div class="cuotas">6x 32 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">81%</span>
-<div class="precio">240 USD</div>
-<div class="cuotas">6x 40 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+<!-- ====================== Página 1 ====================== -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 11 128GB <span class="usado">78% Usado</span><div class="precio">$50.000</div><div class="cuotas">3x $16.667 • 6x $8.333 • 9x $5.556</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 128GB <span class="usado">85% Usado</span><div class="precio">$70.000</div><div class="cuotas">3x $23.333 • 6x $11.667 • 9x $7.778</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 Pro 128GB <span class="usado">90% Usado</span><div class="precio">$95.000</div><div class="cuotas">3x $31.667 • 6x $15.833 • 9x $10.556</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 128GB <span class="usado">88% Usado</span><div class="precio">$105.000</div><div class="cuotas">3x $35.000 • 6x $17.500 • 9x $11.667</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 Pro 128GB <span class="usado">92% Usado</span><div class="precio">$125.000</div><div class="cuotas">3x $41.667 • 6x $20.833 • 9x $13.889</div><a class="boton" href="#">Consultar</a></div>
 
-<!-- iPhone 12 -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 12 128GB <span class="usado">85%</span>
-<div class="precio">300 USD</div>
-<div class="cuotas">6x 50 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+<!-- ====================== Página 2 ====================== -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 128GB <span class="usado">93% Usado</span><div class="precio">$140.000</div><div class="cuotas">3x $46.667 • 6x $23.333 • 9x $15.556</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Plus 128GB <span class="usado">90% Usado</span><div class="precio">$155.000</div><div class="cuotas">3x $51.667 • 6x $25.833 • 9x $17.222</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Pro 128GB <span class="usado">95% Usado</span><div class="precio">$180.000</div><div class="cuotas">3x $60.000 • 6x $30.000 • 9x $20.000</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 Pro Max 256GB <span class="usado">97% Usado</span><div class="precio">$220.000</div><div class="cuotas">3x $73.333 • 6x $36.667 • 9x $24.444</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 128GB <span class="usado">95% Usado</span><div class="precio">$250.000</div><div class="cuotas">3x $83.333 • 6x $41.667 • 9x $27.778</div><a class="boton" href="#">Consultar</a></div>
 
-<!-- iPhone 13 -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 13 128GB <span class="usado">88%</span>
-<div class="precio">420 USD</div>
-<div class="cuotas">6x 70 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
-
-<!-- iPhone 14 -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 14 128GB <span class="usado">90%</span>
-<div class="precio">500 USD</div>
-<div class="cuotas">6x 84 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
-
-<!-- iPhone 15 -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 128GB <span class="usado">92%</span>
-<div class="precio">650 USD</div>
-<div class="cuotas">6x 108 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
-
-<!-- iPhone 16 -->
-<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 128GB <span class="usado">94%</span>
-<div class="precio">750 USD</div>
-<div class="cuotas">6x 125 USD</div>
-<a class="boton" href="https://wa.me/543585079522">Consultar</a></div>
+<!-- ====================== Página 3 ====================== -->
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 Pro 128GB <span class="usado">96% Usado</span><div class="precio">$280.000</div><div class="cuotas">3x $93.333 • 6x $46.667 • 9x $31.111</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 15 Pro Max 256GB <span class="usado">97% Usado</span><div class="precio">$350.000</div><div class="cuotas">3x $116.667 • 6x $58.333 • 9x $38.889</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 128GB <span class="usado">98% Usado</span><div class="precio">$400.000</div><div class="cuotas">3x $133.333 • 6x $66.667 • 9x $44.444</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 16 Pro 128GB <span class="usado">98% Usado</span><div class="precio">$450.000</div><div class="cuotas">3x $150.000 • 6x $75.000 • 9x $50.000</div><a class="boton" href="#">Consultar</a></div>
+<div class="card iphone"><i class="fa-brands fa-apple"></i> iPhone 17 256GB NUEVO <span class="usado">100% Nuevo</span><div class="precio">$550.000</div><div class="cuotas">3x $183.333 • 6x $91.667 • 9x $61.111</div><a class="boton" href="#">Consultar</a></div>
 
 </div>
 
@@ -214,7 +185,7 @@ section{padding:15px;}
 
 <script>
 let p=1;
-const por=4; // productos por página
+const por=5;
 const items=document.querySelectorAll(".iphone");
 const total=Math.ceil(items.length/por);
 
