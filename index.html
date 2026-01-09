@@ -32,7 +32,6 @@ header{text-align:center;padding:25px}
   display:flex;
   gap:15px;
   overflow-x:auto;
-  justify-content:flex-start;
   padding:10px;
   align-items:center;
 }
@@ -105,7 +104,6 @@ section{padding:15px}
   font-weight:bold;
   animation:pulso 2s infinite;
 }
-
 @keyframes pulso{
   0%{box-shadow:0 0 5px #00ff99}
   50%{box-shadow:0 0 14px #00ff99}
@@ -118,22 +116,10 @@ section{padding:15px}
   margin:8px 0;
 }
 
-.cuotas{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
-.cuota{
-  background:#c00;
-  padding:4px 8px;
-  border-radius:6px;
-  font-size:12px;
-}
-
 .boton{
   position:relative;
   display:block;
-  margin-top:12px;
+  margin-top:10px;
   padding:10px;
   background:white;
   color:black;
@@ -162,7 +148,49 @@ section{padding:15px}
   to{background-position:200%}
 }
 
+.ver-cuotas{
+  margin-top:6px;
+  background:#ff4d6d;
+  border:none;
+  color:white;
+  padding:6px 10px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
 .sellado{display:none}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.modal-content{
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+}
+.cuota{
+  background:#c00;
+  padding:6px 10px;
+  border-radius:8px;
+  margin:6px 0;
+}
+.cerrar{
+  margin-top:10px;
+  padding:6px 14px;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -174,54 +202,35 @@ section{padding:15px}
 </header>
 
 <div class="stock">
-  <h2>STOCK DISPONIBLE</h2>
+<h2>STOCK DISPONIBLE</h2>
 
-  <div class="modelos">
-    <div class="modelo" onclick="mostrarSellados()">
-      <img src="https://i.postimg.cc/PqzbwZHY/i_Phone_Device_List_Smart_Website_1280_x_853_i_Phone_17_Pro_1_c26420e4fa.webp">
-      <span>Sellados</span>
-    </div>
-
-    <div class="separador"></div>
-
-    <div class="modelo" onclick="filtrarModelo('11')">
-      <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg">
-      <span>iPhone 11</span>
-    </div>
-
-    <div class="modelo" onclick="filtrarModelo('12')">
-      <img src="https://i.postimg.cc/9MFt2M9F/1_org_zoom.webp">
-      <span>iPhone 12</span>
-    </div>
-
-    <div class="modelo" onclick="filtrarModelo('13')">
-      <img src="https://i.postimg.cc/90LZXJJ8/iphone-13-PNG27.png">
-      <span>iPhone 13</span>
-    </div>
-
-    <div class="modelo" onclick="filtrarModelo('14')">
-      <img src="https://i.postimg.cc/tTt7Cthh/0bb0c6a5-603e-4338-8527-1fda8f2df096.png">
-      <span>iPhone 14</span>
-    </div>
-
-    <div class="modelo" onclick="filtrarModelo('15')">
-      <img src="https://i.postimg.cc/tTyvxpx9/iphone15.webp">
-      <span>iPhone 15</span>
-    </div>
+<div class="modelos">
+  <div class="modelo" onclick="mostrarSellados()">
+    <img src="https://i.postimg.cc/PqzbwZHY/i_Phone_Device_List_Smart_Website_1280_x_853_i_Phone_17_Pro_1_c26420e4fa.webp">
+    <span>Sellados</span>
   </div>
 
-  <button class="ver-todos" onclick="verTodos()">Ver todos</button>
+  <div class="separador"></div>
+
+  <div class="modelo" onclick="filtrarModelo('11')"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg"><span>iPhone 11</span></div>
+  <div class="modelo" onclick="filtrarModelo('12')"><img src="https://i.postimg.cc/9MFt2M9F/1_org_zoom.webp"><span>iPhone 12</span></div>
+  <div class="modelo" onclick="filtrarModelo('13')"><img src="https://i.postimg.cc/90LZXJJ8/iphone-13-PNG27.png"><span>iPhone 13</span></div>
+  <div class="modelo" onclick="filtrarModelo('14')"><img src="https://i.postimg.cc/tTt7Cthh/0bb0c6a5-603e-4338-8527-1fda8f2df096.png"><span>iPhone 14</span></div>
+  <div class="modelo" onclick="filtrarModelo('15')"><img src="https://i.postimg.cc/tTyvxpx9/iphone15.webp"><span>iPhone 15</span></div>
+</div>
+
+<button class="ver-todos" onclick="verTodos()">Ver todos</button>
 </div>
 
 <section>
-<div class="grid" id="lista">
+<div class="grid">
 
-<!-- USADOS (sin cambios) -->
+<!-- USADOS -->
 <div class="card usado" data-modelo="11" data-precio="320000">
   <div class="titulo">iPhone 11 64GB <span class="tag">Usado</span></div>
   <div class="bateria">🔋 78%</div>
   <div class="precio">$320.000</div>
-  <div class="cuotas"></div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
@@ -229,7 +238,7 @@ section{padding:15px}
   <div class="titulo">iPhone 12 64GB <span class="tag">Usado</span></div>
   <div class="bateria">🔋 82%</div>
   <div class="precio">$420.000</div>
-  <div class="cuotas"></div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
@@ -237,7 +246,7 @@ section{padding:15px}
   <div class="titulo">iPhone 13 128GB <span class="tag">Usado</span></div>
   <div class="bateria">🔋 88%</div>
   <div class="precio">$520.000</div>
-  <div class="cuotas"></div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
@@ -245,7 +254,7 @@ section{padding:15px}
   <div class="titulo">iPhone 14 128GB <span class="tag">Usado</span></div>
   <div class="bateria">🔋 90%</div>
   <div class="precio">$620.000</div>
-  <div class="cuotas"></div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
@@ -253,72 +262,78 @@ section{padding:15px}
   <div class="titulo">iPhone 15 128GB <span class="tag">Usado</span></div>
   <div class="bateria">🔋 95%</div>
   <div class="precio">$720.000</div>
-  <div class="cuotas"></div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
-<!-- SELLADOS (CON PRECIO) -->
-<div class="card sellado">
+<!-- SELLADOS -->
+<div class="card sellado" data-precio="780000">
   <div class="titulo">iPhone 13 <span class="tag">Sellado</span></div>
-  <div class="bateria">🔋 100%</div>
   <div class="precio">$780.000</div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
-<div class="card sellado">
+<div class="card sellado" data-precio="890000">
   <div class="titulo">iPhone 14 <span class="tag">Sellado</span></div>
-  <div class="bateria">🔋 100%</div>
   <div class="precio">$890.000</div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
-<div class="card sellado">
+<div class="card sellado" data-precio="1050000">
   <div class="titulo">iPhone 15 <span class="tag">Sellado</span></div>
-  <div class="bateria">🔋 100%</div>
   <div class="precio">$1.050.000</div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
-<div class="card sellado">
+<div class="card sellado" data-precio="1450000">
   <div class="titulo">iPhone 17 Pro Max <span class="tag">Sellado</span></div>
-  <div class="bateria">🔋 100%</div>
   <div class="precio">$1.450.000</div>
+  <button class="ver-cuotas" onclick="abrirCuotas(this)">Ver cuotas</button>
   <a class="boton" href="https://wa.me/5493585079522">Consultar</a>
 </div>
 
 </div>
 </section>
 
+<div class="modal" id="modal">
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
 <script>
 const usados=document.querySelectorAll(".usado");
 const sellados=document.querySelectorAll(".sellado");
-
-usados.forEach(card=>{
-  const precio=parseInt(card.dataset.precio);
-  const cuotas=card.querySelector(".cuotas");
-  [3,6,9].forEach(n=>{
-    const d=document.createElement("div");
-    d.className="cuota";
-    d.innerText=n+"x $"+Math.ceil(precio/n).toLocaleString("es-AR");
-    cuotas.appendChild(d);
-  });
-});
 
 function mostrarSellados(){
   usados.forEach(i=>i.style.display="none");
   sellados.forEach(i=>i.style.display="block");
 }
-
 function filtrarModelo(m){
-  usados.forEach(i=>{
-    i.style.display=i.dataset.modelo===m?"block":"none";
-  });
+  usados.forEach(i=>i.style.display=i.dataset.modelo===m?"block":"none");
   sellados.forEach(i=>i.style.display="none");
 }
-
 function verTodos(){
   usados.forEach(i=>i.style.display="block");
   sellados.forEach(i=>i.style.display="none");
+}
+
+function abrirCuotas(btn){
+  const card=btn.closest(".card");
+  const precio=parseInt(card.dataset.precio);
+  const modal=document.getElementById("modal");
+  const c=document.getElementById("modalContent");
+
+  c.innerHTML="<h3>Cuotas disponibles</h3>";
+  [3,6,9].forEach(n=>{
+    c.innerHTML+=`<div class="cuota">${n}x $${Math.ceil(precio/n).toLocaleString("es-AR")}</div>`;
+  });
+  c.innerHTML+=`<button class="cerrar" onclick="cerrarCuotas()">Cerrar</button>`;
+  modal.style.display="flex";
+}
+function cerrarCuotas(){
+  document.getElementById("modal").style.display="none";
 }
 </script>
 
